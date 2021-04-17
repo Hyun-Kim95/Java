@@ -115,7 +115,7 @@
 
 * ![제목 없음3] (C:\Users\User\Desktop\새 폴더\제목 없음3.png)
 
-* > ![제목 없음3](C:\Users\User\Desktop\새 폴더\제목 없음3.png)
+* > ![제목 없음3](https://user-images.githubusercontent.com/75933619/115117922-de3b1400-9fdb-11eb-8456-80445b11c5b2.png)
 
 * 사이즈 조절 기능은 없음
 
@@ -123,7 +123,7 @@
     <img src="C:\Users\User\Desktop\새 폴더\제목 없음3.png" width="350px" height="200px" title="px(픽셀) 크기 설정" alt="hoho"></img><br/>
     ```
 
-  * <img src="C:\Users\User\Desktop\새 폴더\제목 없음3.png" width="350px" height="200px" title="px(픽셀) 크기 설정" alt="hoho"></img> 
+  * <img src="https://user-images.githubusercontent.com/75933619/115117922-de3b1400-9fdb-11eb-8456-80445b11c5b2.png" width="350px" height="200px" title="px(픽셀) 크기 설정" alt="hoho"></img> 
 
 ### Issues 에서 New Issues에 이미지 드롭해 놓으면 나오는 주소를 이미지 주소로 사용하면 됨
 
