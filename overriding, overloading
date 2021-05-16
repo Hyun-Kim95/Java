@@ -1,0 +1,89 @@
+overriding: 재정의
+
+  부모클래스에 정의된 메소드를 다시 정의해서 사용가능
+    sum 메소드를 호출하면 자식클래스에 있나 찾아보고 없으면 부모클래스에서 찾아서 출력함
+    -> 자식메소드에 sum이라는 메소드를 재정의하면 그 결과로 출력됨
+    
+  사용조건: 메소드의 서명이 일치해야함
+    메소드의 서명: 메소드의 이름, 메소드 매개변수의 숫자와 데이터타입 그리고 순서, 메소드의 리턴 타입
+  
+  public int avg() {  // 부모의 메소드
+      return ((this.left + this.right) / 2);
+  }
+  
+  public int avg() {  // 자식의 메소드
+      return super.avg(); // 중복은 제거하고 부모의 메소드를 그대로 가져옴
+      // 추가할 사항은 여기에 추가하면 됨
+  }
+
+overloading: 같은 이름 다른 매개변수일 때, 같은 이름의 메소드를 여러개 정의하는 것(매개변수의 이름은 상관없음)
+              리턴형식은 같아야 함
+  예제)
+    package org.opentutorials.javatutorials.overloading.example1;
+
+    class Calculator{
+        int left, right;
+        int third = 0;
+
+        public void setOprands(int left, int right){
+            this.left = left;
+            this.right = right;
+        }
+
+        public void setOprands(int left, int right, int third){
+            setOprands(left, right);  // 중복제거
+            this.third = third;
+        }
+
+        public void sum(){
+            System.out.println(this.left+this.right+this.third);
+        }
+
+        public void avg(){
+            System.out.println((this.left+this.right+this.third)/3);
+        }
+    }
+
+    public class CalculatorDemo {
+
+        public static void main(String[] args) {
+
+            Calculator c1 = new Calculator();
+            c1.setOprands(10, 20);
+            c1.sum();       
+            c1.avg();
+            c1.setOprands(10, 20, 30);  // overloading
+            c1.sum();       
+            c1.avg();
+
+        }
+
+    }
+
+예제1)
+  package org.opentutorials.javatutorials.overloading.example1;
+  public class OverloadingDemo {
+    void A () {System.out.println("void A()");}
+    void A (int arg1) {System.out.println("void A(int arg1)");}
+    void A (String arg1) {System.out.println("void A (String arg1)");}  // 오버로딩들
+    //int A (){System.out.println("void A()");}                         // 리턴형식이 달라서 오류발생
+    public static void main(String[] args) {
+      OverloadingDemo od = new OverloadingDemo();
+      od.A();
+      od.A(1);
+      od.A("coding everybody");
+    }
+  }
+예제2)
+  package org.opentutorials.javatutorials.overloading.example1;
+  public class OverloadingDemo2 extends OverloadingDemo {                 // 예제1과 같은 패키지라서 extends 가능
+    void A(String arg1, String arg2) {System.out.println("sub class : void A (String arg1, String arg2)");}	// overloading
+    void A () {System.out.println("sub class : void A ()");}	            // overriding: 내용만 바꿈
+    public static void main(String[] args) {
+      OverloadingDemo2 od = new OverloadingDemo2();
+      od.A();
+      od.A(1);
+      od.A("coding every body");
+      od.A("coding everybody", "coding everybody");
+    }
+  }

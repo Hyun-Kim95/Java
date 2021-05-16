@@ -1,0 +1,69 @@
+반복문
+  while문: 조건이 true인 동안 반복실행
+    while(조건){
+        반복 실행 영역
+    }
+    예제:
+      int i = 0;
+      while(i<10) {
+        System.out.println("Coding Everybody" + i);
+        i++;
+      }
+
+
+  for문:
+    for(초기화; 종료조건; 반복실행){
+        반복적으로 실행될 구문
+    }
+    예제:
+      for(int i = 0; i<10; i++) {
+        System.out.println("Coding Everybody" + i);
+      }
+
+  break(종료), continue(건너뜀)
+  예제:
+    for(int i = 0; i < 10; i++) {
+        if(i == 5)
+          continue;	// 한줄일 때 중괄호 생략 가능
+        System.out.println("Coding Everybody"+i);
+    }
+
+  반복문의 중첩
+    예제:
+      for(int i = 0; i< 10; i++) {
+        for(int j = 0; j<10; j++) {
+          System.out.println(i+""+j);   // 결과: 00 ~ 99 까지 출력
+        }
+      }
+
+배열
+  배열정의: // ↓변수이름    // ↓배열에 담긴 데이터
+    String[] classGroup = { "최진혁", "최유빈", "한이람", "이고잉"};
+    // ↑문자열로 이루어진 배열
+  
+    String[] classGroup = new String[4];    // 4개짜리 인덱스를 정의해서 밑에 자리별로 넣어줌
+		classGroup[0] = "최진혁";
+		System.out.println(classGroup.length);  // 배열에 담을 수 있는 갯수를 표시해줌 // 결과: 4
+		classGroup[1] = "최유빈";
+		System.out.println(classGroup.length);  // 결과: 4
+		classGroup[2] = "한이람";
+		System.out.println(classGroup.length);  // 결과: 4
+		classGroup[3] = "이고잉";
+    System.out.println(classGroup.length);  // 결과: 4
+
+배열과 반복문
+  예제:
+    String[] members = {"최진혁", "최유빈", "한이람"};
+    for(int i = 0; i< members.length; i++) {
+      String member = members[i];
+      System.out.println(member + "이 상담을 받았습니다");
+    }
+  
+  for each문: 
+    String[] members = {"최진혁", "최유빈", "한이람"};
+		for(String e : members) {                         // 반복문을 돌면서 e라는 스트링 변수에 members의 변수를 하나씩 대입해줌
+			System.out.println(e + "이 상담을 받았습니다");
+		}
+
+배열로 선언한 크기 이상의 자료는 가져올 수도 집어 넣을 수도 없다(오류발생)
+이런 불편함을 해결하기 위해 Java에는 Collection(Container) 이라는 기능이 있다.-> 뒤에 배울 예정

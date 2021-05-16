@@ -1,0 +1,56 @@
+숫자:
+  패키지(org.opentutorials.numberstring) -> Class(Number) 생성
+  System.out.println(4+2); 적으면 실행시 6 이라는 결과가 나옴
+
+문자,문자열:
+  패키지(org.opentutorials.numberstring) -> Class(CharString) 생성
+  문자: 한 글자, 작은따옴표(큰 따옴표를 써도 에러발생X -> 한 글자도 문자열이 될 수 있기 때문)
+  문자열: 글자들의 모임, 큰 따옴표(작은따옴표를 쓰면 에러 발생)
+  System.out.println('생'); 적으면 실행시 생 이라는 결과가 나옴
+  System.out.println('생활코딩'); 적으면  그 줄 왼쪽에 'X'표시가 뜨고 밑에 Problems 를 확인하면 문제에 대해 자세히 나옴
+  -> 무시하고 실행하면 오류발생
+  
+  System.out.println("생활코딩" + "입니다"); 결과: 생활코딩입니다
+  System.out.println("1" + "2");            결과: 12
+  내부에서 큰 따옴표를 사용: \"
+  Ex) System.out.println("egoing said \"Welcome programming world\""); 결과 : egoing said "Welcome programming world"
+  줄바꿈: \n
+  Ex) System.out.println("egoing said \n\"Welcome programming world\"");
+      결과 : egoing said
+             "Welcome programming world"
+
+변수:
+  숫자변수:
+    패키지(org.opentutorials.javatutorials.variable) -> Class(IntergerDemo, DoubleDemo) 생성
+    int a;                    // 정수 a 라는 변수를 선언 (실수 = double)
+    a = 1;                    // a 에 1을 대입 -> 실수형을 대입하면 에러 발생
+    System.out.println(a+1);	// 결과: 2
+    a = 2;                    // a 에 2를 대입
+    System.out.println(a+1);	// 결과: 3
+  문자열변수:
+    패키지(org.opentutorials.javatutorials.variable) -> Class(StringDemo) 생성
+    // String first;
+		// first = "coding";
+		String first = "coding";  // 이렇게 한줄로 적을 수도 있음
+    
+    String a, b;              // 문자열 변수 두개를 한줄로 만들 수도 있음
+		a = "coding";
+		b = "everybody";
+		System.out.println(a+b);  // 결과: codingeverybody
+
+주석: //(한줄 주석), /* */(여러줄 주석)
+세미콜론(;): 문장의 끝을 의미함 -> 한줄에 두가지를 쓸 수 있음 ex) int a = 100; double b = 10.1;
+            -> 중괄호를 닫는 것 이미 끝을 의미하기 때문에 세미콜론을 안붙힘
+전체코드:
+package org.opentutorials.javatutorials.variables;
+
+public class StringDemo {
+
+	public static void main(String[] args) {
+		String a, b;
+		a = "coding";
+		b = "everybody";
+		System.out.println(a+b);
+	}
+
+}

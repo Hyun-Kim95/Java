@@ -1,0 +1,32 @@
+구글에 java jdk download 검색 -> 윈도우로 설치
+윈도우+R 버튼으로 cmd 켜서 'java'를 쓰고 엔터쳤을때 뭐가 많이 뜨면 설치 완료
+                         'javac'를 쓰고 엔터쳤을때 뭐가 많이 뜨면 설치 완료(자바 컴파일러)
+                         -> 안돼면 c드라이브-> Program Files -> java -> jdk ->bin -> javac가 있음
+                         -> 경로복사 -> 내PC 우클릭 -> 속성 -> 고급 시스템 설정 -> 환경변수 -> path 부분 더블클릭
+                         -> 마지막에 (;)붙혀줌 -> 그 뒤에 복사한 경로 붙혀넣기 -> cmd 다시 실행해서 확인하면 성공
+내PC 속성 -> 고급시스템 설정 -> 환경변수 -> 시스템 변수(S) 부분에 새로만들기 -> 변수 이름'JAVA_HOME'
+-> 변수 값에는 복사한 값 붙혀넣고 마지막 \bin 부분 없애고 확인
+
+윈도우에서는 메모장에 코딩을 해도 됨 -> 메모장에 밑에처럼 적고 다른 이름으로 저장 클릭 ->
+class Helloworld {
+  public static void main(String[] args){
+    System.out.ptintln("Hello world");
+  }
+}
+-> 공부할 내용 저장할 파일에 'Helloworld.java'라는 이름으로 저장 -> cmd 실행 -> cd를 이용해 저장한 파일의 위치로 변경
+-> dir\w 엔터 하면 현재 Helloworld.java 가 있는게 보임 -> 'javac Helloworld.java' 를 적고 엔터 -> dir/w 엔터
+-> Helloworld.class 가 생긴걸 확인 가능 ->'java Helloword' 엔터 -> 'Hello world' 출력
+-> 메모장에서 'world Hello'로 변경하고 저장 -> cmd에 'java Helloworld' 엔터해도 변경된 내용은 적용이 안됨(컴파일 하지 않아서)
+-> 'javac Helloworld.hava' 엔터 -> 'java Helloworld' 엔터 -> 변경된 내용 출력
+
+이클립스
+이클립스 검색 -> 설치 -> 실행
+-> 화면에 나와있는 탭들은 위에 Window버튼의 Show view에 있음
+우측 상단에 자바, 디버그 모드 선택하면 그에 맞게 구성이 조금 바뀜
+Package Explorer 에서 Create a Java Project 클릭 -> Use default location 클릭해제 후 원하는 주소로 변경 -> 프로젝트이름 설정
+-> Finish 클릭 (-> 파일에 4가지가 새로 생성되어 있음을 볼 수 있음 -> bin 폴더에는 .class , src 폴더에는 .java가 저장됨)
+-> 만들어진 'java_tutorials' 우클릭 -> New -> Package ->  Class -> Name설정(보통 도메인 주소를 사용)
+-> org.opentutorials.javatutorials.eclipse 로 설정(. 을 이용해서 디렉토리 구분 및 자동 생성함)
+-> 만들어진 패키지 우클릭 -> New -> Class -> Name 설정(Helloworld) -> public static void main(String[] args) 체크 -> Finish
+-> 만들어진 코드의 public static void main의 중괄호 부분에 코드를 쓰면 됨 (System.out.println("Hello world");)
+-> 저장하면 자동으로 bin 폴더 안에 컴파일된 파일이 생성됨 -> 왼쪽 위에 재생버튼(Run Helloworld.java) 클릭하면 Console 부분에 결과가 나옴

@@ -1,0 +1,86 @@
+UI: User Interface
+API: Application Programming Interface
+API 문서보는 법:
+  구글에 오라클 자바 검색 -> 최신버전의 Documentation -> 왼쪽에 API Documentation -> 우측 상단에 검색
+
+맴버 접근제어자: public, protected, default, private  (왼쪽이 큰범위)
+클래스 접근제어자: public -> 다른 패키지에서도 사용가능
+                  default(접근제어자를 붙히지 않은 경우) -> 같은 패키지에서만 사용가능
+  public class를 사용하려면 클래스명과 소스코드의 파일명이 같아야한다!!
+  
+접근제어자(private)예제:
+    package org.opentutorials.javatutorials.accessmodifier.inner;
+    class A{                      // default
+      public String y() {
+        return "public void y()";
+      }
+      private String z(){         // private
+        return "public void z()";
+      }
+      public String x() {
+        return z();
+      }
+    }
+
+    public class AccessDemo1 {
+      public static void main(String[] args) {
+        A a = new A();
+        System.out.println(a.y());
+        // 아래 코드는 오류가 발생한다.
+        //System.out.println(a.z());  // 여기서는 접근 불가
+        System.out.println(a.x());
+      }
+
+    }
+
+
+abstract(추상): 상속해서 사용하도록 강제하는 것
+  사용이유: 상황에 따라 같게 동작하는것도 있지만 다르게 동작해야 하는것도 있기 때문에
+            다르게 동작해야 할 메소드를 추상메소드를 이용해서 사용자가 직접 구현하도록 만듬
+
+추상예제:
+    package org.opentutorials.javatutorials.abstractclass.example2;
+    abstract class Calculator{                        // 추상메소드가 하나라도 있으면 그 클래스는 추상 클래스가 됨
+        int left, right;
+        public void setOprands(int left, int right){
+            this.left = left;
+            this.right = right;
+        }
+        int _sum() {
+          return this.left + this.right;	            // 중복 제거용
+        }
+        public abstract void sum();                   // 추상메소드(중괄호가 없음)
+        public abstract void avg();                   // 추상메소드
+        public void run(){	                          // 진행순서를 정의함
+            sum();			                              // 밑에서 오버라이딩한 부분을 호출함
+            avg();
+        }
+    }
+    class CalculatorDecoPlus extends Calculator {     // 오버라이딩
+        public void sum(){
+            System.out.println("+ sum :"+_sum());
+        }
+        public void avg(){
+            System.out.println("+ avg :"+_sum()/2);
+        }
+    } 
+    class CalculatorDecoMinus extends Calculator {
+        public void sum(){
+            System.out.println("- sum :"+_sum());
+        }
+        public void avg(){
+            System.out.println("- avg :"+_sum()/2);
+        }
+    } 
+    public class CalculatorDemo {
+        public static void main(String[] args) { 
+            CalculatorDecoPlus c1 = new CalculatorDecoPlus();
+            c1.setOprands(10, 20);
+            c1.run();
+
+            CalculatorDecoMinus c2 = new CalculatorDecoMinus();
+            c2.setOprands(10, 20);
+            c2.run();
+        }
+
+    }

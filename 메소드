@@ -1,0 +1,40 @@
+메소드(함수): 재활용가능, 코드량감소, 유지보수유리
+  앞에서 계속 사용했던 public static void main(String[] atgs){   } 이것이 메소드 이다.
+  
+  메소드의 입력:
+
+                                 // ↓ 정수형을 받을것을 의미함(매개변수(parameter))
+      public static void numbering(int init, int limit) {			// 정의
+        int i = init;
+        while(i<limit) {
+          System.out.println(i);
+          i++;
+        }
+
+      }
+
+      public static void main(String[] args) {      // 호출
+        numbering(1,5);
+        numbering(0,10);  // 매개변수 부분에 들어갈 숫자(인자(argument))
+      }
+
+  메소드의 출력: return;(메소드를 중단시키는 역할도 함)
+                    // ↓ 리턴값이 String
+      public static String numbering(int init, int limit) {
+        int i = init;
+        String output = "";
+        while(i<limit) {
+          output += i;     // 문자열 형식으로 붙혀넣음
+          i++;
+        }
+        return output;
+      }
+
+      public static void main(String[] args) {
+        String result = numbering(1,5);
+        System.out.println(result);
+      }
+  
+  리턴값을 사용하는 이유: 상황에 맞게 사용할 좋은 부품으로 만들기 위해
+    예) 화면에 출력 뿐만 아니라 결과를 메일로 보내거나 파일로 저장해둘 때 return 값을 가지고 코딩하면 됨
+        return값이 없으면 부품에 손을 대야 함

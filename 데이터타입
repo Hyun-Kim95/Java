@@ -1,0 +1,38 @@
+데이터크기:
+  8 bit         -> 1 byte
+  1024 byte     -> 1 kilobyte
+  1024 kilobyte -> 1 megabyte
+  1024 megabyte -> 1 gigabyte
+  1024 gigabyte -> 1 terabyte
+  1024 terabyte -> 1 petabyte
+  1024 petabyte -> 1 exabyte
+  1024 exabyte  -> 1zettabyte
+
+정수형 데이터 타입:
+  byte, short, int, long  (오른쪽일 수록 큰수를 표현 가능, 메모리 크기가 큼(1,2,4,8))  -> 웬만하면 int 사용
+
+실수형 데이터 타입:
+  float, double           (오른쪽일 수록 큰수를 표현 가능, 메모리 크기가 큼(4,8))  -> 웬만하면 double 사용
+
+문자형 데이터 타입:
+  char(2byte)  ex) 'a' 2byte, 'ab' 4byte
+
+상수형 데이터 타입: (상수: 변할 수 없는 값)
+  long d = 2147483648L; -> 뒤에 'L'이 붙은 상수는 long형 데이터 타입임을 의미함
+  float b = 2.2F;       -> 뒤에 'F'가 붙은 상수는 float형 데이터 타입임을 의미함
+  double, int, byte, short 은 가각의 범위 안에서 그냥 사용가능(정수기본: int, 실수기본: double)
+
+형변환: 데이터의 타입을 변경하는 것
+  자동 형변환:
+    double a = 3.0F; -> 자동형변환을 해서 오류X : float 보다 double이 더 많은 수를 표현할 수 있기 때문에 타입을 변경해도 정보손실이 없기 때문
+    float a = 3.0;   -> 오류 발생 : double 보다 float가 표현범위가 작아서
+    자동 형변환이 가능한 방향
+    byte -> short -> int -> long -> float -> double
+            char ->↗  // char를 int로 바꿀때는 그 문자의 유니코드 값으로 나옴
+    ex) int a = 3;
+        float b = 1.0F;
+        double c = a + b; // 오류발생X, 결과: 4.0
+  
+  명시적 형변환:
+    float a = (float)100.0; // 이렇게 하면 오류발생X
+    int b = (int)100.1F;    // int 는 소수점 뒤에는 사라짐

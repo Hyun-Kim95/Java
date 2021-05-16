@@ -1,0 +1,46 @@
+powershell(cmd) 에서 위치를 D:\java_tutorials 로 맞추고 실행할 파일(.class) 의 패키지 이름과 클래스 이름을 적어줌
+java -cp bin org.opentutorials.javatutorials.io.InputForeachDemo one
+-> 뒤에 one 부분을 입력을 받아서 실행됨
+
+IDE에서 입력받는 방법: scanner
+  
+  키보드 입력받기:
+    package org.opentutorials.javatutorials.io;
+
+    import java.util.Scanner;
+
+    public class Scanner2Demo {
+
+      public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNextInt()) {                // 여기서 입력대기(정수형이 아니면 탈출)
+          System.out.println(sc.nextInt()*1000);  // 입력값에 1000을 곱한 후 출력
+        }
+        sc.close();
+      }
+
+    }
+
+  파일에서 값 가져오기:
+    (out.txt 파일에 정수를 미리 적어놨음)
+      package org.opentutorials.javatutorials.io;
+
+      import java.io.File;
+      import java.io.FileNotFoundException;     // ctrl + shift + o 누르면 필요한 파일을 전부 import 할 수 있음
+      import java.util.Scanner;
+
+      public class Scanner3Demo {
+
+        public static void main(String[] args) {
+          try {
+            File file = new File("out.txt");
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextInt()) {
+              System.out.println(sc.nextInt()*1000);
+          }
+          sc.close();
+          } catch(FileNotFoundException e) {    // try가 실행 안되고 예외 발생시 출력하라는 코드(나중에 배울거임)
+            e.printStackTrace();
+          }
+        }
+      }

@@ -1,0 +1,62 @@
+final: 상속/변경을 금지하는 규제
+  ex)
+    static final double PI = 3.14;  // 변경불가
+    -------------------------------
+    class A{
+        final void b(){}
+    }
+    class B extends A{
+        void b(){}    // overriding 불가
+    }
+    --------------------------------
+    final class C{
+        final void b(){}
+    }
+    class D extends C{} // 상속불가
+
+인터페이스: 업무를 나눠서 할때 오류가능성을 현저히 낮춰줌, 접근제어자는 반드시 public
+            , 상속과는 다르게 구현할 때 두개를 한번에 구현가능-> class A implemonts I1,I2 {
+            , 상속가능 -> interface I3 가 있고 interface I4 extends I3 가능 -> I4를 구현할때 I3도 같이 구현해야함
+  ex)
+    package org.opentutorials.javatutorials.interfaces.example;
+    public interface Calculatable {
+      public void setOprands(int first, int second, int third); // 인터페이스로 틀을 만듬
+      public int sum();
+      public int avg();
+    }
+    -----------------------
+    package org.opentutorials.javatutorials.interfaces.example;
+    class Calculator implements Calculatable{                   // 인터페이스를 구현(안하면 컴파일조차 안됨)
+      int first, second, third;
+      public void setOprands(int first, int second, int third) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+      }
+      public int sum() {
+        return this.first + this.second + this.third;
+      }
+      public int avg() {
+        return (this.first + this.second + this.third) / 2;
+      }
+    }
+    ------------------------------
+    package org.opentutorials.javatutorials.interfaces.example;
+    class CalculatorDummy implements Calculatable{		          // CalculatorDummy에 인터페이스를 구현
+      public void setOprands(int first, int second, int third) {  // 대충 틀만 구현해놓음(컴파일 가능하도록)
+      }
+      public int sum() {
+        return 60;
+      }
+      public int avg() {
+        return 20;
+      }
+    }
+    public class CalculatorConsumer {
+      public static void main(String[] args) {
+        CalculatorDummy c = new CalculatorDummy();      // CalculatorDummy로 만듬 ->  합칠때 Dummy를 없애면 됨
+        c.setOprands(10, 20, 30);
+        System.out.println(c.sum()+c.avg());
+      }
+
+    }
