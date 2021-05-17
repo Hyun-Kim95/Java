@@ -37,7 +37,7 @@ final: 상속/변경을 금지하는 규제
         return this.first + this.second + this.third;
       }
       public int avg() {
-        return (this.first + this.second + this.third) / 2;
+        return (this.first + this.second + this.third) / 3;
       }
     }
     ------------------------------
