@@ -1,24 +1,21 @@
 package baekjoon;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine());
-		StringTokenizer st;	// 공백 단위로 데이터 나눠받기
-		for(int i=1;i<=n;i++) {
-			st = new StringTokenizer(br.readLine());	// 공백 단위로 데이터 나눠받기
-			bw.write((Integer.parseInt(st.nextToken()))+(Integer.parseInt(st.nextToken()))+"\n");
-		}
-		br.close();
-		bw.flush();	// 남아있는 데이터를 모두 출력
-		bw.close();
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		double[] a = new double[n];
+		for (int i = 0; i < n; i++)
+			a[i] = sc.nextDouble();
+		Arrays.sort(a);
+		double m = a[n - 1];
+		double sum = 0;
+		for (int j = 0; j < n; j++)
+			sum += (a[j] / m * 100);
+		System.out.println(sum / (double) n);
 	}
 }
