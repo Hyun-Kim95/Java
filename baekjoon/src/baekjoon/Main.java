@@ -1,21 +1,27 @@
 package baekjoon;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		double[] a = new double[n];
-		for (int i = 0; i < n; i++)
-			a[i] = sc.nextDouble();
-		Arrays.sort(a);
-		double m = a[n - 1];
-		double sum = 0;
-		for (int j = 0; j < n; j++)
-			sum += (a[j] / m * 100);
-		System.out.println(sum / (double) n);
+		int c = sc.nextInt();
+		for(int i=0;i<c;i++) {
+			int n = sc.nextInt();
+			int score[] = new int[n];
+			int sum = 0;
+			int cnt = 0;
+			for(int j=0;j<n;j++) {
+				score[j] = sc.nextInt();
+				sum += score[j];
+			}
+			double avg = (double)sum / (double)n;
+			for(int k = 0;k<n;k++) {
+				if(score[k] >avg) {
+					cnt++;
+				}
+			}
+			System.out.println(String.format("%.3f",(double)cnt/(double)n*100)+"%");
+		}
 	}
 }
