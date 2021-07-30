@@ -3,20 +3,16 @@ package baekjoon;
 import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int a = sc.nextInt();
-		int b = sc.nextInt();
-		int c = sc.nextInt();
-		int i = 0;
-		if(b<c){
-			while(a+b*i >= c*i) {
-				i++;
-			}
-			System.out.println(i);
-		}else {
-			System.out.println(-1);
+		int i = 1;
+		int hang = 1;
+		int yul = 2;
+		while(a != i) {
+			hang
+			for(int j = 1;)
 		}
+		
 	}
 }
